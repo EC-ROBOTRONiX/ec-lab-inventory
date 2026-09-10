@@ -28,26 +28,50 @@ var S = {
   sort: { k: "name", d: 1 },
   bin: null,
   loaded: false,
+  loadError: "",
   syncing: false,
   lastSync: null
 };
 
 /* ---------------- API ---------------- */
+
+/* Every request in flight drives the thin progress bar at the top of the
+   page, so the user can always tell that something is happening. */
+var pending = 0;
+function netStart() {
+  pending++;
+  var b = document.getElementById("loadbar");
+  if (b) b.classList.add("on");
+}
+function netEnd() {
+  pending = Math.max(0, pending - 1);
+  if (pending) return;
+  var b = document.getElementById("loadbar");
+  if (b) b.classList.remove("on");
+}
+function track(promise) {
+  netStart();
+  return promise.then(
+    function (v) { netEnd(); return v; },
+    function (e) { netEnd(); throw e; }
+  );
+}
+
 function apiGet() {
-  return fetch(API_URL + "?action=bootstrap&t=" + Date.now(), {
+  return track(fetch(API_URL + "?action=bootstrap&t=" + Date.now(), {
     method: "GET", redirect: "follow"
-  }).then(function (r) { return r.json(); });
+  }).then(function (r) { return r.json(); }));
 }
 
 function apiPost(action, payload) {
-  return fetch(API_URL, {
+  return track(fetch(API_URL, {
     method: "POST",
     redirect: "follow",
     headers: { "Content-Type": "text/plain;charset=utf-8" },
     body: JSON.stringify({
       action: action, pin: S.pin, who: S.me || "admin", payload: payload || {}
     })
-  }).then(function (r) { return r.json(); });
+  }).then(function (r) { return r.json(); }));
 }
 
 function absorb(data) {
@@ -68,11 +92,14 @@ function refresh(quiet) {
   return apiGet().then(function (res) {
     S.syncing = false;
     if (!res || !res.ok) throw new Error((res && res.error) || "The server did not answer.");
+    S.loadError = "";
     absorb(res.data);
     render();
   }).catch(function (err) {
     S.syncing = false;
     markSync();
+    S.loadError = err.message;
+    if (!S.loaded) render();
     if (!quiet) toast("Could not reach the lab sheet: " + err.message, "bad");
   });
 }
@@ -100,8 +127,13 @@ function write(action, payload, okMsg) {
 
 function markSync() {
   var el = document.getElementById("syncTxt");
+  var btn = document.getElementById("syncBtn");
+  if (btn) {
+    btn.classList.toggle("busy", !!S.syncing);
+    btn.disabled = !!S.syncing;
+  }
   if (!el) return;
-  if (S.syncing) { el.textContent = "Syncing…"; return; }
+  if (S.syncing) { el.innerHTML = '<span class="spin"></span>Syncing…'; return; }
   el.textContent = S.lastSync ? "Synced " + fmtWhen(S.lastSync.toISOString()) : "Not synced";
 }
 
@@ -113,6 +145,18 @@ function esc(s) {
   });
 }
 function nowISO() { return new Date().toISOString(); }
+
+/* Every time shown in this app is India Standard Time, whatever clock the
+   viewer's computer is set to. */
+var IST = "Asia/Kolkata";
+function fmtExact(iso) {
+  if (!iso) return "—";
+  var d = new Date(iso); if (isNaN(d)) return "—";
+  return d.toLocaleString("en-IN", {
+    day: "2-digit", month: "short", year: "numeric",
+    hour: "2-digit", minute: "2-digit", hour12: true, timeZone: IST
+  }) + " IST";
+}
 function fmtWhen(iso) {
   if (!iso) return "—";
   var d = new Date(iso); if (isNaN(d)) return "—";
@@ -121,7 +165,7 @@ function fmtWhen(iso) {
   if (diff < 3600) return Math.floor(diff / 60) + " min ago";
   if (diff < 86400) return Math.floor(diff / 3600) + " hr ago";
   if (diff < 604800) return Math.floor(diff / 86400) + " d ago";
-  return d.toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
+  return d.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric", timeZone: IST });
 }
 function toast(msg, kind) {
   var t = document.createElement("div");
@@ -130,6 +174,81 @@ function toast(msg, kind) {
   $("#toasts").appendChild(t);
   setTimeout(function () { t.remove(); }, 4200);
 }
+/* ---------------- button feedback ----------------
+   A button that starts a request goes disabled with a spinner, then flashes
+   a green tick or a red cross before returning to its own label. Without
+   this the page looks frozen while the sheet is being written. */
+/* A successful write re-renders the current view, which throws away the very
+   button that started it. This finds the freshly drawn replacement so the
+   tick still lands on the button the user pressed. */
+function refind(el) {
+  if (!el) return el;
+  if (document.contains(el)) return el;
+  if (el.id) {
+    var byId = document.getElementById(el.id);
+    if (byId) return byId;
+  }
+  var keys = ["inc", "dec", "edit", "issue", "return"];
+  for (var i = 0; i < keys.length; i++) {
+    var v = el.dataset ? el.dataset[keys[i]] : null;
+    if (!v) continue;
+    var hit = document.querySelector("[data-" + keys[i] + '="' + v.replace(/"/g, '\\"') + '"]');
+    if (hit) return hit;
+  }
+  return el;
+}
+
+function runBtn(btn, promise, okLabel) {
+  if (!btn || !promise || typeof promise.then !== "function") return promise;
+  var original = btn.innerHTML;
+  var width = btn.offsetWidth;
+  btn.style.minWidth = width + "px";
+  btn.disabled = true;
+  btn.classList.add("busy");
+  btn.innerHTML = '<span class="spin"></span>' + (btn.dataset.busy || "Working…");
+  function settle(cls, label, wait) {
+    var el = refind(btn);
+    el.style.minWidth = width + "px";
+    el.classList.remove("busy");
+    el.classList.add(cls);
+    el.disabled = true;
+    el.innerHTML = label;
+    setTimeout(function () {
+      var back = refind(el);
+      back.classList.remove(cls);
+      back.innerHTML = original;
+      back.style.minWidth = "";
+      back.disabled = false;
+    }, wait);
+  }
+  return promise.then(function (v) {
+    settle("done", "✓ " + (okLabel || "Done"), 1500);
+    return v;
+  }, function (err) {
+    settle("fail", "✕ Failed", 1900);
+    throw err;
+  });
+}
+
+/** Same idea for the small +/- steppers, which have no room for a label. */
+function pulseBtn(btn, promise) {
+  if (!btn || !promise || typeof promise.then !== "function") return promise;
+  btn.classList.add("busy");
+  btn.disabled = true;
+  function clear(cls) {
+    var el = refind(btn);
+    el.classList.remove("busy");
+    el.disabled = false;
+    if (!cls) return;
+    el.classList.add(cls);
+    setTimeout(function () { refind(el).classList.remove(cls); }, 900);
+  }
+  return promise.then(
+    function (v) { clear("done"); return v; },
+    function (e) { clear("fail"); throw e; }
+  );
+}
+
 function isAdmin() { return S.role === "admin"; }
 function guard() {
   if (isAdmin()) return true;
@@ -224,12 +343,33 @@ function render() {
     overview: vOverview, inventory: vInventory, alerts: vAlerts, racks: vRacks,
     issue: vIssue, log: vLog, manage: vManage, settings: vSettings
   })[S.view] || vOverview;
-  el.innerHTML = fn();
+  el.innerHTML = (S.loaded || !CONFIGURED) ? fn() : loadingPanel();
   wire();
   var st = stats();
   $("#lowBadge").textContent = st.low + st.out;
   $("#lowBadge").style.display = (st.low + st.out) ? "" : "none";
   $("#brandSub").textContent = st.total + " components · " + Object.keys(st.bins).length + " locations";
+}
+
+/** Placeholder shown while the first read of the sheet is still running. */
+function loadingPanel() {
+  if (S.loadError) {
+    return '<div class="head"><div><h1>Could not load the register</h1>' +
+      '<p class="sub">' + esc(S.loadError) + "</p></div></div>" +
+      '<section class="panel"><div class="pb">' +
+      '<div class="note">The lab sheet did not answer. Check the connection and try again.</div>' +
+      '<button class="btn primary" id="retryLoad" style="margin-top:12px" data-busy="Retrying…">Try again</button>' +
+      "</div></section>";
+  }
+  return '<div class="head"><div><h1>Loading…</h1>' +
+    '<p class="sub">Reading the register from the lab sheet.</p></div></div>' +
+    '<section class="panel"><div class="pb">' +
+    '<div class="loading"><span class="spin big"></span><span>Fetching components…</span></div>' +
+    '<div class="skelwrap">' +
+    '<div class="skel" style="width:70%"></div><div class="skel" style="width:90%"></div>' +
+    '<div class="skel" style="width:55%"></div><div class="skel" style="width:80%"></div>' +
+    '<div class="skel" style="width:65%"></div>' +
+    "</div></div></section>";
 }
 
 /* ---------- overview ---------- */
@@ -533,7 +673,8 @@ function vLog() {
   h += log.length ? '<div class="tablewrap"><table><thead><tr><th>What happened</th><th>By</th><th>When</th></tr></thead><tbody>' +
     log.map(function (e) {
       return "<tr><td>" + esc(e.text) + '</td><td><span class="tag">' + esc(e.who || "—") + "</span></td>" +
-        '<td class="mono" style="color:var(--muted);white-space:nowrap">' + fmtWhen(e.at) + "</td></tr>";
+        '<td class="mono" style="color:var(--muted);white-space:nowrap" title="' + esc(fmtExact(e.at)) + '">' +
+        fmtWhen(e.at) + "</td></tr>";
     }).join("") + "</tbody></table></div>"
     : '<div class="empty"><b>Log is empty</b>Every add, edit, issue and return gets recorded here.</div>';
   h += "</section>";
@@ -634,13 +775,13 @@ function byId(id) {
   return null;
 }
 
-function bump(id, delta) {
+function bump(id, delta, btn) {
   var c = byId(id); if (!c) return;
   var next = Math.max(0, (c.unknown ? 0 : (c.qty || 0)) + delta);
-  write("saveComponent", {
+  pulseBtn(btn, write("saveComponent", {
     id: c.id, name: c.name, type: c.type, smd: c.smd, place: c.place,
     qty: next, min: minOf(c), unknown: false
-  }).catch(function () {});
+  })).catch(function () {});
 }
 
 function openEdit(id) {
@@ -655,9 +796,9 @@ function openEdit(id) {
     '<div class="hint mono">' + esc(c.id) + " · last change " + fmtWhen(c.updatedAt) + (c.updatedBy ? " by " + esc(c.updatedBy) : "") + "</div>" +
     "</div>",
     [{ label: "Delete", cls: "btn", act: function (close) { confirmDelete(c, close); } },
-     { label: "Save changes", cls: "btn primary", act: function (close) {
+     { label: "Save changes", cls: "btn primary", ok: "Saved", act: function () {
        var qv = $("#eQty").value.trim();
-       write("saveComponent", {
+       return write("saveComponent", {
          id: c.id,
          name: $("#eName").value.trim() || c.name,
          type: $("#eType").value.trim() || c.type,
@@ -666,17 +807,18 @@ function openEdit(id) {
          unknown: qv === "",
          min: Math.max(0, parseInt($("#eMin").value, 10) || 0),
          smd: $("#eSmd").checked
-       }, "Saved.").then(close).catch(function () {});
+       }, "Saved.");
      } }]);
 }
 
 function confirmDelete(c, closeParent) {
   modal("Remove from register?", '<p style="margin:0">This deletes <b>' + esc(c.name) +
     '</b> from bin <span class="bin">' + esc(c.place) + "</span> permanently. Its issue history stays in the log.</p>",
-    [{ label: "Delete component", cls: "btn primary", act: function (close) {
-      write("deleteComponent", { id: c.id }, "Component removed.").then(function () {
-        close(); if (closeParent) closeParent();
-      }).catch(function () {});
+    [{ label: "Delete component", cls: "btn primary", ok: "Removed", act: function () {
+      return write("deleteComponent", { id: c.id }, "Component removed.").then(function (r) {
+        if (closeParent) closeParent();
+        return r;
+      });
     } }]);
 }
 
@@ -690,15 +832,15 @@ function openIssue(id) {
     '<div class="ff2"><div><label class="f" for="iQty">Quantity</label><input class="inp mono" id="iQty" type="number" min="1" max="' + maxq + '" value="1"></div>' +
     '<div><label class="f" for="iPurpose">Purpose</label><input class="inp" id="iPurpose" placeholder="Project / lab work"></div></div>' +
     "</div>",
-    [{ label: "Issue and reduce stock", cls: "btn primary", act: function (close) {
+    [{ label: "Issue and reduce stock", cls: "btn primary", ok: "Issued", act: function () {
       var person = $("#iPerson").value.trim();
       if (!person) { toast("Enter who is taking it.", "bad"); return; }
-      write("issue", {
+      return write("issue", {
         compId: c.id,
         qty: Math.max(1, parseInt($("#iQty").value, 10) || 1),
         person: person,
         purpose: $("#iPurpose").value.trim()
-      }, "Issued to " + person + ".").then(close).catch(function () {});
+      }, "Issued to " + person + ".");
     } }]);
 }
 
@@ -711,21 +853,21 @@ function doReturn(issueId) {
     "</b> × " + esc(x.compName) + '. Put it back in bin <span class="bin">' + esc(x.place || "?") + "</span>.</p>" +
     '<label class="f" for="rQty">Quantity coming back</label><input class="inp mono" id="rQty" type="number" min="0" max="' + x.qty + '" value="' + x.qty + '">' +
     '<div class="hint">Enter a smaller number if some pieces were consumed or damaged.</div>',
-    [{ label: "Record return", cls: "btn primary", act: function (close) {
-      write("returnIssue", {
+    [{ label: "Record return", cls: "btn primary", ok: "Returned", act: function () {
+      return write("returnIssue", {
         id: x.id, qty: Math.max(0, Math.min(x.qty, parseInt($("#rQty").value, 10) || 0))
-      }, "Return recorded.").then(close).catch(function () {});
+      }, "Return recorded.");
     } }]);
 }
 
-function addComponent() {
+function addComponent(btn) {
   if (!guard()) return;
   var name = $("#nName").value.trim();
   if (!name) { toast("Give the component a name.", "bad"); return; }
   var type = $("#nType").value.trim() || "Misc";
   var minv = $("#nMin").value.trim();
   var place = ($("#nPlace").value.trim() || "UNASSIGNED").toUpperCase();
-  write("saveComponent", {
+  var job = write("saveComponent", {
     name: name, type: type, place: place,
     qty: Math.max(0, parseInt($("#nQty").value, 10) || 0),
     min: minv === "" ? ((S.cfg.thresholds || {})[type] != null ? S.cfg.thresholds[type] : (S.cfg.defaultMin || 3))
@@ -737,7 +879,8 @@ function addComponent() {
     var smd = $("#nSmd"); if (smd) smd.checked = false;
     var w = $("#dupWarn"); if (w) w.innerHTML = "";
     var n = $("#nName"); if (n) n.focus();
-  }).catch(function () {});
+  });
+  runBtn(btn, job, "Added").catch(function () {});
 }
 
 /* ---------- CSV ---------- */
@@ -800,7 +943,14 @@ function modal(title, bodyHTML, actions) {
     (actions || []).forEach(function (a) {
       var b = document.createElement("button");
       b.className = a.cls || "btn"; b.textContent = a.label;
-      b.addEventListener("click", function () { a.act(close); });
+      if (a.busy) b.dataset.busy = a.busy;
+      b.addEventListener("click", function () {
+        var r = a.act(close, b);
+        if (!r || typeof r.then !== "function") return;
+        runBtn(b, r, a.ok || "Saved").then(function () {
+          setTimeout(close, 800);
+        }, function () {});
+      });
       mf.appendChild(b);
     });
     var cancel = document.createElement("button");
@@ -831,8 +981,8 @@ function wire() {
   root.addEventListener("click", function (e) {
     var t = e.target.closest("[data-inc],[data-dec],[data-edit],[data-issue],[data-return],[data-bin],[data-go],[data-sort],[data-st]");
     if (!t) return;
-    if (t.dataset.inc) return bump(t.dataset.inc, 1);
-    if (t.dataset.dec) return bump(t.dataset.dec, -1);
+    if (t.dataset.inc) return bump(t.dataset.inc, 1, t);
+    if (t.dataset.dec) return bump(t.dataset.dec, -1, t);
     if (t.dataset.edit) return openEdit(t.dataset.edit);
     if (t.dataset.issue) return openIssue(t.dataset.issue);
     if (t.dataset.return) return doReturn(t.dataset.return);
@@ -847,6 +997,9 @@ function wire() {
   });
   }
 
+  on("#retryLoad", "click", function () {
+    runBtn(this, refresh(), "Loaded").catch(function () {});
+  });
   on("#clearQ", "click", function () { S.q = ""; $("#q").value = ""; render(); });
   on("#closeBin", "click", function () { S.bin = null; render(); });
   on("#resetF", "click", function () { S.filt = { type: "", place: "", status: "", smd: "" }; render(); });
@@ -886,7 +1039,7 @@ function wire() {
     });
   });
 
-  on("#addGo", "click", addComponent);
+  on("#addGo", "click", function () { addComponent(this); });
   on("#nName", "input", function () {
     var v = this.value.trim(), w = $("#dupWarn"); if (!w) return;
     if (v.length < 3) { w.innerHTML = ""; return; }
@@ -929,8 +1082,8 @@ function wire() {
         items2.push({ id: inp.dataset.bt, qty: Math.max(0, parseInt(inp.value, 10) || 0) });
       });
       if (!items2.length) { toast("Nothing entered.", "bad"); return; }
-      write("bulkQty", { items: items2, place: bin }, items2.length + " quantities updated.")
-        .catch(function () {});
+      runBtn(this, write("bulkQty", { items: items2, place: bin },
+        items2.length + " quantities updated."), "Saved").catch(function () {});
     });
   });
 
@@ -938,16 +1091,19 @@ function wire() {
     if (!guard()) return;
     var th = {};
     document.querySelectorAll(".th").forEach(function (i) { th[i.dataset.th] = Math.max(0, parseInt(i.value, 10) || 0); });
-    write("saveSettings", { thresholds: th }, "Thresholds saved.").catch(function () {});
+    runBtn(this, write("saveSettings", { thresholds: th }, "Thresholds saved."), "Saved")
+      .catch(function () {});
   });
   on("#savePin", "click", function () {
     if (!guard()) return;
     var p = $("#newPin").value.trim();
     if (p.length < 4) { toast("Use at least 4 characters.", "bad"); return; }
-    write("setPin", { pin: p }, "PIN changed.").then(function () {
+    var job = write("setPin", { pin: p }, "PIN changed.").then(function (r) {
       S.pin = p;
       var el = $("#newPin"); if (el) el.value = "";
-    }).catch(function () {});
+      return r;
+    });
+    runBtn(this, job, "PIN changed").catch(function () {});
   });
 }
 
@@ -979,14 +1135,19 @@ document.addEventListener("keydown", function (e) {
     e.preventDefault(); $("#q").focus();
   }
 });
+/* The page opens in the light theme unless this browser has been switched
+   before. The button cycles light -> dark -> follow the operating system.
+   The starting value is applied by the small script in index.html, before
+   the first paint, so the page never flashes the wrong theme. */
 on("#themeBtn", "click", function () {
   var cur = document.documentElement.getAttribute("data-theme");
-  var next = cur === "dark" ? "light" : cur === "light" ? "" : "dark";
-  if (next) document.documentElement.setAttribute("data-theme", next);
-  else document.documentElement.removeAttribute("data-theme");
+  var next = cur === "light" ? "dark" : cur === "dark" ? "" : "light";
+  document.documentElement.setAttribute("data-theme", next);
   try { localStorage.setItem("ec.theme", next); } catch (err) {}
+  this.title = next === "light" ? "Light theme — click for dark"
+    : next === "dark" ? "Dark theme — click to follow the system"
+    : "Following the system theme — click for light";
 });
-try { var th0 = localStorage.getItem("ec.theme"); if (th0) document.documentElement.setAttribute("data-theme", th0); } catch (err) {}
 
 on("#syncBtn", "click", function () { refresh(); });
 
@@ -1021,9 +1182,14 @@ on("#pinBack", "click", function () { $("#pinBox").hidden = true; $("#pinErr").t
 function tryPin() {
   var v = $("#pinIn").value.trim();
   if (!v) { $("#pinErr").textContent = "Enter the lab PIN."; return; }
-  $("#pinErr").textContent = "Checking…";
+  var btn = $("#pinGo");
+  var label = btn ? btn.innerHTML : "";
+  if (btn) { btn.disabled = true; btn.innerHTML = '<span class="spin"></span>Checking…'; }
+  function release() { if (btn) { btn.disabled = false; btn.innerHTML = label; } }
+  $("#pinErr").textContent = "";
   S.pin = v;
   apiPost("login", {}).then(function (res) {
+    release();
     if (res && res.ok) {
       var who = "";
       try { who = localStorage.getItem("ec.who") || ""; } catch (e) {}
@@ -1039,6 +1205,7 @@ function tryPin() {
       $("#pinIn").select();
     }
   }).catch(function () {
+    release();
     S.pin = "";
     $("#pinErr").textContent = "Could not reach the lab sheet. Check the connection.";
   });
@@ -1057,14 +1224,19 @@ function boot() {
     $("#cAdmin").disabled = true;
     return;
   }
-  status.textContent = "Connecting to the lab sheet…";
+  status.innerHTML = '<span class="spin"></span>Connecting to the lab sheet…';
   apiGet().then(function (res) {
     if (!res || !res.ok) throw new Error((res && res.error) || "The server did not answer.");
+    S.loadError = "";
     absorb(res.data);
+    /* Someone may have walked past the gate while this was still running. */
+    if ($("#app").classList.contains("on")) { markSync(); render(); }
     status.textContent = S.comps.length
       ? S.comps.length + " components loaded from the lab sheet."
       : "The sheet is empty — sign in as admin and add your first component.";
   }).catch(function (err) {
+    S.loadError = err.message;
+    if ($("#app").classList.contains("on")) render();
     status.innerHTML = '<span style="color:var(--out)">Could not reach the lab sheet: ' +
       esc(err.message) + "</span> Check the URL in config.js and that the web app is deployed for “Anyone”.";
   });

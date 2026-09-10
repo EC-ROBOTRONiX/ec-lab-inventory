@@ -305,3 +305,51 @@ td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;t
 @media (max-width:420px){
   .brand .bt span{display:none}
 }
+
+/* ---- activity feedback: progress bar, busy buttons, loading placeholder ----
+   Anything that talks to the sheet takes a moment, so every trigger says so:
+   a bar across the top of the window while a request is open, a spinner and a
+   tick on the button that started it, and a skeleton while the first read
+   is still running. */
+.loadbar{
+  position:fixed;top:0;left:0;right:0;height:3px;z-index:200;
+  pointer-events:none;overflow:hidden;opacity:0;transition:opacity .18s;
+}
+.loadbar.on{opacity:1}
+.loadbar::after{
+  content:"";position:absolute;top:0;bottom:0;width:38%;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  animation:ec-slide 1.05s linear infinite;
+}
+@keyframes ec-slide{from{transform:translateX(-110%)}to{transform:translateX(360%)}}
+
+.spin{
+  display:inline-block;width:12px;height:12px;margin-right:7px;vertical-align:-1px;
+  border:2px solid currentColor;border-right-color:transparent;border-radius:50%;
+  animation:ec-spin .62s linear infinite;
+}
+.spin.big{width:26px;height:26px;border-width:3px;margin:0;color:var(--accent)}
+@keyframes ec-spin{to{transform:rotate(360deg)}}
+
+button:disabled{cursor:default}
+.btn.busy,.btn.done,.btn.fail{opacity:1;cursor:default}
+.btn.busy{color:var(--ink-2)}
+.btn.done{background:var(--ok)!important;border-color:var(--ok)!important;color:#fff!important}
+.btn.fail{background:var(--out)!important;border-color:var(--out)!important;color:#fff!important}
+.iconbtn.busy{opacity:.7}
+.stepper button.busy{opacity:.4}
+.stepper button.done{color:var(--ok);font-weight:700}
+.stepper button.fail{color:var(--out);font-weight:700}
+
+.loading{display:flex;align-items:center;justify-content:center;gap:12px;padding:28px 10px;color:var(--muted);font-size:13px}
+.skelwrap{display:grid;gap:10px;padding:4px 2px 10px}
+.skel{
+  height:13px;border-radius:6px;
+  background:linear-gradient(90deg,var(--panel-2) 25%,var(--line-soft) 37%,var(--panel-2) 63%);
+  background-size:400% 100%;animation:ec-shimmer 1.3s ease-in-out infinite;
+}
+@keyframes ec-shimmer{from{background-position:100% 0}to{background-position:0 0}}
+
+@media (prefers-reduced-motion:reduce){
+  .loadbar::after,.spin,.skel{animation:none}
+}

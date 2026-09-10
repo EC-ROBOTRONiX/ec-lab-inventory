@@ -10,8 +10,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="styles.css">
+<script>
+/* Apply the saved theme before the first paint so the page never flashes.
+   No stored choice means the light theme, not the operating system one. */
+(function () {
+  var t = "light";
+  try { var v = localStorage.getItem("ec.theme"); if (v !== null) t = v; } catch (e) {}
+  document.documentElement.setAttribute("data-theme", t);
+})();
+</script>
 </head>
 <body>
+<div class="loadbar" id="loadbar" aria-hidden="true"></div>
 <!-- ================= GATE ================= -->
 <div class="gate" id="gate">
   <div class="gatecard">
@@ -74,7 +84,7 @@
       </div>
       <div class="spacer"></div>
       <button class="iconbtn" id="syncBtn" title="Reload from the lab sheet"><span id="syncTxt">Sync</span></button>
-      <button class="iconbtn" id="themeBtn" title="Switch theme">◐</button>
+      <button class="iconbtn" id="themeBtn" title="Light theme — click for dark">◐</button>
       <span class="rolepill" id="rolePill"><span class="dot"></span><span id="roleTxt">Viewer</span></span>
       <button class="iconbtn" id="signBtn">Switch</button>
     </div>

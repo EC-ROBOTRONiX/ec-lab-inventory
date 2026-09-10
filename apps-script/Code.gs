@@ -35,6 +35,17 @@ var SETTINGS_HEADERS = ['key', 'value'];
 
 var ACTIVITY_LIMIT = 400;   // rows kept in the Activity sheet
 var DEFAULT_PIN = 'EC2580'; // used only until an admin changes it
+var TIMEZONE = 'Asia/Kolkata';
+
+/**
+ * Every timestamp this script writes is India Standard Time, in the form
+ * 2026-09-10T17:21:43+05:30. The offset keeps the value sortable and still
+ * readable straight from the spreadsheet. India has no daylight saving, so
+ * the offset is constant.
+ */
+function stamp(d) {
+  return Utilities.formatDate(d || new Date(), TIMEZONE, "yyyy-MM-dd'T'HH:mm:ss") + '+05:30';
+}
 
 /* ===================================================================
    SETUP — run once from the editor
@@ -42,6 +53,7 @@ var DEFAULT_PIN = 'EC2580'; // used only until an admin changes it
 
 function setupSheets() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
+  ss.setSpreadsheetTimeZone(TIMEZONE);
   ensureSheet(ss, SHEET_INVENTORY, INVENTORY_HEADERS);
   ensureSheet(ss, SHEET_ISSUES, ISSUE_HEADERS);
   ensureSheet(ss, SHEET_ACTIVITY, ACTIVITY_HEADERS);
@@ -160,7 +172,7 @@ function bootstrap() {
     issues: readSheet(SHEET_ISSUES, ISSUE_HEADERS).map(normaliseIssue),
     activity: readSheet(SHEET_ACTIVITY, ACTIVITY_HEADERS).slice(-120).reverse(),
     settings: readSettings(),
-    serverTime: new Date().toISOString()
+    serverTime: stamp()
   };
 }
 
@@ -235,7 +247,7 @@ function isTrue(v) {
 
 function asIso(v) {
   if (!v) return '';
-  if (Object.prototype.toString.call(v) === '[object Date]') return v.toISOString();
+  if (Object.prototype.toString.call(v) === '[object Date]') return stamp(v);
   return String(v);
 }
 
@@ -277,7 +289,7 @@ function saveComponent(p, who) {
     min: Math.max(0, Number(p.min) || 0),
     approx: false,
     unknown: !!p.unknown,
-    updatedAt: new Date().toISOString(),
+    updatedAt: stamp(),
     updatedBy: who
   };
   if (!c.name) throw new Error('A component needs a name.');
@@ -309,7 +321,7 @@ function deleteComponent(p, who) {
 function bulkQty(p, who) {
   var items = p.items || [];
   var sh = sheetOf(SHEET_INVENTORY);
-  var now = new Date().toISOString();
+  var now = stamp();
   var n = 0;
   for (var i = 0; i < items.length; i++) {
     var row = findRow(SHEET_INVENTORY, items[i].id);
@@ -340,7 +352,7 @@ function issueComponent(p, who) {
   if (!person) throw new Error('Enter who is taking the component.');
   if (!unknown && qty > have) throw new Error('Only ' + have + ' on the shelf.');
 
-  var now = new Date().toISOString();
+  var now = stamp();
   sheetOf(SHEET_ISSUES).appendRow([
     newId('IS'), p.compId, name, place, qty, person,
     String(p.purpose || ''), now, who, 'open', '', ''
@@ -363,7 +375,7 @@ function returnIssue(p, who) {
   var compName = String(ish.getRange(row, 3).getValue());
   var person = String(ish.getRange(row, 6).getValue());
   var back = Math.max(0, Math.min(issued, Number(p.qty)));
-  var now = new Date().toISOString();
+  var now = stamp();
 
   ish.getRange(row, 10).setValue('returned');
   ish.getRange(row, 11).setValue(now);
@@ -419,7 +431,7 @@ function setPin(p, who) {
 function log(kind, who, text) {
   var sh = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_ACTIVITY);
   if (!sh) return;
-  sh.appendRow([new Date().toISOString(), kind, who, text]);
+  sh.appendRow([stamp(), kind, who, text]);
   var extra = sh.getLastRow() - 1 - ACTIVITY_LIMIT;
   if (extra > 0) sh.deleteRows(2, extra);
 }
