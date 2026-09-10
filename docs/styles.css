@@ -270,3 +270,38 @@ td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;t
   .ff2{grid-template-columns:1fr}
   .brow{grid-template-columns:88px 1fr 40px}
 }
+
+/* ---- company logo (ROBOTRONiX) ----
+   Two versions of the artwork ship as transparent PNGs: the original for the
+   light theme, and a recoloured one whose neutral tones are flipped so the
+   mark stays readable on the dark panel. The theme selects one of them; the
+   logo sits directly on the page with no plate behind it. */
+.light-only{display:block}
+.dark-only{display:none}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .light-only{display:none}
+  :root:not([data-theme="light"]) .dark-only{display:block}
+}
+:root[data-theme="dark"] .light-only{display:none}
+:root[data-theme="dark"] .dark-only{display:block}
+:root[data-theme="light"] .light-only{display:block}
+:root[data-theme="light"] .dark-only{display:none}
+
+.brand .logo{height:32px;width:auto;flex:none}
+.brand .bt{min-width:0}
+
+.gatelogo{width:100%;max-width:260px;height:auto;margin:0 auto 18px}
+
+.gatefoot{
+  margin:14px 0 0;text-align:center;font-size:10.5px;letter-spacing:.03em;
+  color:var(--muted);text-transform:uppercase;
+}
+
+@media (max-width:860px){
+  .brand .logo{height:26px}
+  .brand .bt b{font-size:13.5px}
+  .gatelogo{max-width:220px}
+}
+@media (max-width:420px){
+  .brand .bt span{display:none}
+}

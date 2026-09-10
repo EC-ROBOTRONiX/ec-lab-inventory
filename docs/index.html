@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EC Lab Bin Index</title>
+<title>EC Lab Inventory</title>
 <meta name="description" content="Component stock and bin-location register for the EC Lab.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23AC4E1C'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='bold' fill='white' text-anchor='middle'%3EEC%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
@@ -16,9 +16,13 @@
 <div class="gate" id="gate">
   <div class="gatecard">
     <div class="gh">
+      <img class="gatelogo light-only" src="assets/logo.png"
+           alt="ROBOTRONiX Engineering Tech Pvt. Ltd." width="900" height="233">
+      <img class="gatelogo dark-only" src="assets/logo-dark.png"
+           alt="ROBOTRONiX Engineering Tech Pvt. Ltd." width="900" height="233">
       <div class="brand" style="margin-bottom:12px">
         <div class="mark">EC</div>
-        <div><b>EC Lab Bin Index</b><span>Component stock &amp; location register</span></div>
+        <div><b>EC Lab Inventory</b><span>Component stock &amp; location register</span></div>
       </div>
       <h1>Who is signing in?</h1>
       <p class="sub">Viewers can search and see stock. Admins can add, edit, issue and return.</p>
@@ -42,6 +46,7 @@
         </div>
       </div>
       <div class="hint" id="gateStatus">Connecting to the lab database…</div>
+      <p class="gatefoot">A ROBOTRONiX Engineering Tech Pvt. Ltd. system</p>
     </div>
   </div>
 </div>
@@ -56,8 +61,11 @@
     </div>
     <div class="topbar-in">
       <div class="brand">
-        <div class="mark">EC</div>
-        <div><b>EC Lab Bin Index</b><span id="brandSub">380 components</span></div>
+        <img class="logo light-only" src="assets/logo.png"
+             alt="ROBOTRONiX Engineering Tech Pvt. Ltd." width="900" height="233">
+        <img class="logo dark-only" src="assets/logo-dark.png"
+             alt="ROBOTRONiX Engineering Tech Pvt. Ltd." width="900" height="233">
+        <div class="bt"><b>EC Lab Inventory</b><span id="brandSub">380 components</span></div>
       </div>
       <div class="gsearch">
         <span class="ic">🔍</span>

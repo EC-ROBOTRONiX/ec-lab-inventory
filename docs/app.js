@@ -1,5 +1,5 @@
 /* ========================================================================
-   EC Lab Bin Index — component stock and location register.
+   EC Lab Inventory — component stock and location register.
 
    Front end only. All data lives in a Google Sheet and is reached through
    the Apps Script web app whose URL sits in config.js.
