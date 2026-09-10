@@ -1,0 +1,4 @@
+key,value
+labName,EC Lab
+thresholds,"{""Resistor"":10,""Potentiometer"":4,""Sensor"":2,""Microphone"":2,""Speaker"":1,""Capacitor"":10,""Filter"":4,""Fuse"":4,""Battery"":2,""IC Base"":5,""Module"":2,""Switch"":4,""Motor"":2,""Oscillator"":5,""Transistor"":4,""LED"":5,""Connector"":4,""Relay"":2,""Antenna"":1,""Hardware"":5,""Heat Sink"":4,""Diode"":5,""IC"":4,""MCU / Dev Board"":1,""Jumper Wire"":5,""Display"":1,""Cable"":2,""Power"":2,""Fan"":1,""PCB"":1,""Misc"":2,""Inductor"":5,""RFID"":1,""Buzzer"":1,""Soldering"":1,""Wire"":2,""Tool"":1,""Lamp"":1,""Chassis"":1,""Converter"":1,""Memory"":1,""Camera"":1,""Driver"":1}"
+defaultMin,3

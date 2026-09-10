@@ -1,0 +1,381 @@
+id,name,type,smd,place,qty,min,approx,unknown,updatedAt,updatedBy
+EC001,330 Ω Resistor,Resistor,,A1,10,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC002,70 Ω Resistor,Resistor,,A1,5,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC003,68 Ω Resistor,Resistor,,A1,150,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC004,100 Ω Resistor,Resistor,,A1,25,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC005,5.2 Ω Resistor,Resistor,,A1,20,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC006,150K Ω Resistor,Resistor,,A1,10,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC007,15K Ω Resistor,Resistor,,A1,15,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC008,220 Ω Resistor,Resistor,,A2,50,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC009,10K Ω Resistor,Resistor,,A2,50,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC010,330K Ω Resistor,Resistor,,A2,25,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC011,470 Ω Resistor,Resistor,,A2,10,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC012,4.7K Ω Resistor,Resistor,,A2,30,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC013,1K Ω Resistor,Resistor,,A2,50,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC014,470 Ω Preset Potentiometer,Potentiometer,,A3,5,4,,,2026-09-09T00:00:00.000Z,import
+EC015,4.7K Ω Preset Potentiometer,Potentiometer,,A3,3,4,,,2026-09-09T00:00:00.000Z,import
+EC016,1M Ω Preset Potentiometer,Potentiometer,,A3,5,4,,,2026-09-09T00:00:00.000Z,import
+EC017,10K Ω Preset Potentiometer,Potentiometer,,A3,3,4,,,2026-09-09T00:00:00.000Z,import
+EC018,100 Ω Preset Potentiometer,Potentiometer,,A3,4,4,,,2026-09-09T00:00:00.000Z,import
+EC019,1K Ω Preset Potentiometer,Potentiometer,,A3,100,4,Yes,,2026-09-09T00:00:00.000Z,import
+EC020,200 Ω Preset Potentiometer,Potentiometer,,A3,6,4,,,2026-09-09T00:00:00.000Z,import
+EC021,LDR,Resistor,,A4,25,10,,,2026-09-09T00:00:00.000Z,import
+EC022,QRD1114,Sensor,,A4,16,2,,,2026-09-09T00:00:00.000Z,import
+EC023,Adafruit PDM MEMS,Microphone,,A4,5,2,,,2026-09-09T00:00:00.000Z,import
+EC024,Microphone and Microphone Module,Microphone,,A4,,2,,Yes,2026-09-09T00:00:00.000Z,import
+EC025,Speacker Speacker Module,Speaker,,A4,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC026,1uf 63V capacitor,Capacitor,,A5,44,10,,,2026-09-09T00:00:00.000Z,import
+EC027,104 Non Polarised Capacitor,Capacitor,,A5,147,10,,,2026-09-09T00:00:00.000Z,import
+EC028,150 Non Polarised Capacitor,Capacitor,,A5,77,10,,,2026-09-09T00:00:00.000Z,import
+EC029,103 Non Polarised Capacitor,Capacitor,,A5,24,10,,,2026-09-09T00:00:00.000Z,import
+EC030,33 Non Polarised Capacitor,Capacitor,,A5,39,10,,,2026-09-09T00:00:00.000Z,import
+EC031,0.1uf 50v Capacitor,Capacitor,,A5,15,10,,,2026-09-09T00:00:00.000Z,import
+EC032,203 Non Polarised Capacitor,Capacitor,,A5,83,10,,,2026-09-09T00:00:00.000Z,import
+EC033,102 Non Polarised Capacitor,Capacitor,,A5,11,10,,,2026-09-09T00:00:00.000Z,import
+EC034,2.7 Non polarised Capacitor,Capacitor,,A5,6,10,,,2026-09-09T00:00:00.000Z,import
+EC035,47 Non polarised Capacitor,Capacitor,,A5,6,10,,,2026-09-09T00:00:00.000Z,import
+EC036,56 Non Polarised Capacitor,Capacitor,,A5,8,10,,,2026-09-09T00:00:00.000Z,import
+EC037,1K 63 Voltage Filter,Filter,,A5,9,4,,,2026-09-09T00:00:00.000Z,import
+EC038,22J Fuse,Fuse,,A5,8,4,,,2026-09-09T00:00:00.000Z,import
+EC039,22 Non Polarised Capacitor,Capacitor,,A6,65,10,,,2026-09-09T00:00:00.000Z,import
+EC040,20 Non Polarised Capacitor,Capacitor,,A6,29,10,,,2026-09-09T00:00:00.000Z,import
+EC041,1uf 450v Capacitor,Capacitor,,A6,14,10,,,2026-09-09T00:00:00.000Z,import
+EC042,1000uf 16v Capacitor,Capacitor,,A6,14,10,,,2026-09-09T00:00:00.000Z,import
+EC043,22uf 63v Capacitor,Capacitor,,A6,14,10,,,2026-09-09T00:00:00.000Z,import
+EC044,10uf 63v Capacitor,Capacitor,,A6,64,10,,,2026-09-09T00:00:00.000Z,import
+EC045,100uf 25v Capacitor,Capacitor,,A6,12,10,,,2026-09-09T00:00:00.000Z,import
+EC046,10uf 25v Capacitor,Capacitor,,A6,19,10,,,2026-09-09T00:00:00.000Z,import
+EC047,2.2uf 63v Capacitor,Capacitor,,A6,7,10,,,2026-09-09T00:00:00.000Z,import
+EC048,10uf 50v Capacitor,Capacitor,,A6,7,10,,,2026-09-09T00:00:00.000Z,import
+EC049,473J1000 Filter,Filter,,A6,5,4,,,2026-09-09T00:00:00.000Z,import
+EC050,200K Ω Resistor,Resistor,,A7,50,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC051,23K Ω Resistor,Resistor,,A7,100,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC052,2.2M Ω Resistor,Resistor,,A7,50,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC053,25 Ω Resistor,Resistor,,A7,25,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC054,15 Ω Resistor,Resistor,,A7,20,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC055,Thermistor,Sensor,,B1,4,2,,,2026-09-09T00:00:00.000Z,import
+EC056,AA battery,Battery,,B1,4,2,,,2026-09-09T00:00:00.000Z,import
+EC057,Coin Cell Holder,Battery,,B1,5,2,,,2026-09-09T00:00:00.000Z,import
+EC058,AAA Battery,Battery,,B1,5,2,,,2026-09-09T00:00:00.000Z,import
+EC059,6 pin IC base,IC Base,,B1,93,5,,,2026-09-09T00:00:00.000Z,import
+EC060,2W 105 Non Polarised Capacitor,Capacitor,,B2,17,10,,,2026-09-09T00:00:00.000Z,import
+EC061,Plastic Film Capacitor,Capacitor,,B2,14,10,,,2026-09-09T00:00:00.000Z,import
+EC062,XBEE Module,Module,,B2,2,2,,,2026-09-09T00:00:00.000Z,import
+EC063,LM35,Sensor,,B3,16,2,,,2026-09-09T00:00:00.000Z,import
+EC064,MQ-5,Sensor,,B3,11,2,,,2026-09-09T00:00:00.000Z,import
+EC065,MQ-7,Sensor,,B3,20,2,,,2026-09-09T00:00:00.000Z,import
+EC066,MQ-2,Sensor,,B3,9,2,,,2026-09-09T00:00:00.000Z,import
+EC067,Photoelectric Switch,Switch,,B3,5,4,,,2026-09-09T00:00:00.000Z,import
+EC068,TCST 1103 Transmissive Optical Sensor,Sensor,,B3,10,2,,,2026-09-09T00:00:00.000Z,import
+EC069,MQ-6,Sensor,,B3,3,2,,,2026-09-09T00:00:00.000Z,import
+EC070,DTMF board,Module,,B4,5,2,,,2026-09-09T00:00:00.000Z,import
+EC071,SPST Rocker Switch,Switch,,B4,19,4,,,2026-09-09T00:00:00.000Z,import
+EC072,Vibration Motor,Motor,,B4,3,2,,,2026-09-09T00:00:00.000Z,import
+EC073,Big Push Button Switch,Switch,,B4,4,4,,,2026-09-09T00:00:00.000Z,import
+EC074,6- Pin Self Lock Switch,Switch,,B4,18,4,,,2026-09-09T00:00:00.000Z,import
+EC075,433 RF Transmitter Module,Module,,B5,16,2,,,2026-09-09T00:00:00.000Z,import
+EC076,433 Reciever Module,Module,,B5,3,2,,,2026-09-09T00:00:00.000Z,import
+EC077,15 MHz Oscillator,Oscillator,,B6,10,5,,,2026-09-09T00:00:00.000Z,import
+EC078,12 MHz Oscillator,Oscillator,,B6,36,5,,,2026-09-09T00:00:00.000Z,import
+EC079,8 MHz Oscillator,Oscillator,,B6,40,5,,,2026-09-09T00:00:00.000Z,import
+EC080,3.579 MHz Oscillator,Oscillator,,B6,102,5,,,2026-09-09T00:00:00.000Z,import
+EC081,11.592 MHz Oscillator,Oscillator,,B6,65,5,,,2026-09-09T00:00:00.000Z,import
+EC082,16MHz Oscillator,Oscillator,,B6,2,5,,,2026-09-09T00:00:00.000Z,import
+EC083,203Trimmer Potentiometer,Potentiometer,,B7,48,4,,,2026-09-09T00:00:00.000Z,import
+EC084,103 Trimmer Potentiometer Horizontal,Potentiometer,,B7,36,4,,,2026-09-09T00:00:00.000Z,import
+EC085,103 Trimmer Potentiometer verticle,Potentiometer,,B7,56,4,,,2026-09-09T00:00:00.000Z,import
+EC086,SK 100 B Silicon Transistor,Transistor,,B7,7,4,,,2026-09-09T00:00:00.000Z,import
+EC087,RGB Common Anode,LED,,B8,14,5,,,2026-09-09T00:00:00.000Z,import
+EC088,photo diode Transmitter,LED,,B8,14,5,,,2026-09-09T00:00:00.000Z,import
+EC089,Photo Diode Reciever,LED,,B8,2,5,,,2026-09-09T00:00:00.000Z,import
+EC090,7 Segment Small,LED,,B8,15,5,,,2026-09-09T00:00:00.000Z,import
+EC091,7 Segment BIG (CA),LED,,B8,30,5,,,2026-09-09T00:00:00.000Z,import
+EC092,I2C OLED,LED,,B8,1,5,,,2026-09-09T00:00:00.000Z,import
+EC093,3 MM blue LED,LED,,B8,93,5,,,2026-09-09T00:00:00.000Z,import
+EC094,2 Pin Screw Block Connector,Connector,,B9,7,4,,,2026-09-09T00:00:00.000Z,import
+EC095,3 Pin Screw Block Connector,Connector,,B9,9,4,,,2026-09-09T00:00:00.000Z,import
+EC096,PIR,Sensor,,B9,5,2,,,2026-09-09T00:00:00.000Z,import
+EC097,IR Sensor,Sensor,,B9,23,2,,,2026-09-09T00:00:00.000Z,import
+EC098,IR sensor (SMD),Sensor,,B9,2,2,,,2026-09-09T00:00:00.000Z,import
+EC099,Latching Push-Button Switch,Switch,,C1,9,4,,,2026-09-09T00:00:00.000Z,import
+EC100,Slide Switch,Switch,,C1,18,4,,,2026-09-09T00:00:00.000Z,import
+EC101,Push Switch,Switch,,C1,,4,,Yes,2026-09-09T00:00:00.000Z,import
+EC102,18 Pin IC Base,IC Base,,C2,51,5,,,2026-09-09T00:00:00.000Z,import
+EC103,14 Pin IC Base,IC Base,,C2,188,5,,,2026-09-09T00:00:00.000Z,import
+EC104,20 Pin IC Base,IC Base,,C2,144,5,,,2026-09-09T00:00:00.000Z,import
+EC105,24V Relay,Relay,,C3,10,2,,,2026-09-09T00:00:00.000Z,import
+EC106,5V Realy,Relay,,C3,20,2,,,2026-09-09T00:00:00.000Z,import
+EC107,L298N Module,Module,,C3,5,2,,,2026-09-09T00:00:00.000Z,import
+EC108,28 Pin IC Base,IC Base,,C4,6,5,,,2026-09-09T00:00:00.000Z,import
+EC109,40 Pin ZIF Socket,IC Base,,C4,3,5,,,2026-09-09T00:00:00.000Z,import
+EC110,28 Pin ZIF Socket,IC Base,,C4,13,5,,,2026-09-09T00:00:00.000Z,import
+EC111,NEO 6M GPS Module,Module,,UNASSIGNED,15,2,,,2026-09-09T00:00:00.000Z,import
+EC112,SIM800L GPRS GSM Module,Module,,C5,10,2,,,2026-09-09T00:00:00.000Z,import
+EC113,NEO6M GPS Antenna,Antenna,,C5,6,1,,,2026-09-09T00:00:00.000Z,import
+EC114,IRF 420 Mosfet Module,Module,,C5,1,2,,,2026-09-09T00:00:00.000Z,import
+EC115,Normal Screw Bolt,Hardware,,C6,,5,,Yes,2026-09-09T00:00:00.000Z,import
+EC116,SMD Screw and Bolt,Hardware,,C7,,5,,Yes,2026-09-09T00:00:00.000Z,import
+EC117,Heat Sink,Heat Sink,,C8,5,4,,,2026-09-09T00:00:00.000Z,import
+EC118,8 Pin IC Base,IC Base,,C8,25,5,,,2026-09-09T00:00:00.000Z,import
+EC119,16 Pin IC Base,IC Base,,C8,98,5,,,2026-09-09T00:00:00.000Z,import
+EC120,A 103 J Resister Network,Resistor,,C8,154,10,,,2026-09-09T00:00:00.000Z,import
+EC121,Zener Diode,Diode,,C8,,5,,Yes,2026-09-09T00:00:00.000Z,import
+EC122,NE 555 P,IC,,D1,32,4,,,2026-09-09T00:00:00.000Z,import
+EC123,MT 8870 DE,IC,,D1,4,4,,,2026-09-09T00:00:00.000Z,import
+EC124,HT 9170 B,IC,,D1,19,4,,,2026-09-09T00:00:00.000Z,import
+EC125,ULN2003APG,IC,,D1,36,4,,,2026-09-09T00:00:00.000Z,import
+EC126,ULN2803APG,IC,,D1,25,4,,,2026-09-09T00:00:00.000Z,import
+EC127,HD74LS02P,IC,,D1,22,4,,,2026-09-09T00:00:00.000Z,import
+EC128,SN74HC595N,IC,,D1,32,4,,,2026-09-09T00:00:00.000Z,import
+EC129,LM324N,IC,,D1,56,4,,,2026-09-09T00:00:00.000Z,import
+EC130,LM386,IC,,D1,4,4,,,2026-09-09T00:00:00.000Z,import
+EC131,LM358N,IC,,D1,17,4,,,2026-09-09T00:00:00.000Z,import
+EC132,MOC3021,IC,,D2,7,4,,,2026-09-09T00:00:00.000Z,import
+EC133,4N35,IC,,D2,19,4,,,2026-09-09T00:00:00.000Z,import
+EC134,BC547B,IC,,D2,48,4,,,2026-09-09T00:00:00.000Z,import
+EC135,A741,IC,,D2,5,4,,,2026-09-09T00:00:00.000Z,import
+EC136,DB 107 Bridge Rectfire,IC,,D2,17,4,,,2026-09-09T00:00:00.000Z,import
+EC137,BC558B,IC,,D2,29,4,,,2026-09-09T00:00:00.000Z,import
+EC138,L7805,IC,,D3,48,4,,,2026-09-09T00:00:00.000Z,import
+EC139,IRF Z44N,IC,,D3,21,4,,,2026-09-09T00:00:00.000Z,import
+EC140,TS317,IC,,D3,10,4,,,2026-09-09T00:00:00.000Z,import
+EC141,LM317,IC,,D3,18,4,,,2026-09-09T00:00:00.000Z,import
+EC142,IRF9540 N,IC,,D3,11,4,,,2026-09-09T00:00:00.000Z,import
+EC143,BT136,IC,,D3,15,4,,,2026-09-09T00:00:00.000Z,import
+EC144,IRF9234N,IC,,D3,3,4,,,2026-09-09T00:00:00.000Z,import
+EC145,LD33V,IC,,D3,23,4,,,2026-09-09T00:00:00.000Z,import
+EC146,ATmega 8A,IC,,D4,24,4,,,2026-09-09T00:00:00.000Z,import
+EC147,ATmega 328 P,IC,,D4,12,4,,,2026-09-09T00:00:00.000Z,import
+EC148,MAX 232 CPE / N,IC,,D4,86,4,,,2026-09-09T00:00:00.000Z,import
+EC149,36ZFDT4G3 - ADC0804LCN,IC,,D4,37,4,,,2026-09-09T00:00:00.000Z,import
+EC150,P0838AB - ADC0804LCN,IC,,D4,34,4,,,2026-09-09T00:00:00.000Z,import
+EC151,L293D,IC,,D4,49,4,,,2026-09-09T00:00:00.000Z,import
+EC152,74LS08P,IC,,D5,41,4,,,2026-09-09T00:00:00.000Z,import
+EC153,74LS32P,IC,,D5,5,4,,,2026-09-09T00:00:00.000Z,import
+EC154,74LS164N,IC,,D5,4,4,,,2026-09-09T00:00:00.000Z,import
+EC155,74LS86P,IC,,D5,2,4,,,2026-09-09T00:00:00.000Z,import
+EC156,74LS136N,IC,,D5,3,4,,,2026-09-09T00:00:00.000Z,import
+EC157,74LS245P,IC,,D5,2,4,,,2026-09-09T00:00:00.000Z,import
+EC158,74LS12N,IC,,D5,2,4,,,2026-09-09T00:00:00.000Z,import
+EC159,74LS04P,IC,,D5,3,4,,,2026-09-09T00:00:00.000Z,import
+EC160,74LS161N,IC,,D5,1,4,,,2026-09-09T00:00:00.000Z,import
+EC161,74HC244,IC,,D5,1,4,,,2026-09-09T00:00:00.000Z,import
+EC162,74HCT138,IC,,D5,2,4,,,2026-09-09T00:00:00.000Z,import
+EC163,74HC86,IC,,D5,1,4,,,2026-09-09T00:00:00.000Z,import
+EC164,74LS90N,IC,,D5,1,4,,,2026-09-09T00:00:00.000Z,import
+EC165,74HC32N,IC,,D5,1,4,,,2026-09-09T00:00:00.000Z,import
+EC166,ST232CN,IC,,D5,7,4,,,2026-09-09T00:00:00.000Z,import
+EC167,ADM 232 LJN,IC,,D6,5,4,,,2026-09-09T00:00:00.000Z,import
+EC168,SP232 AEP,IC,,D6,2,4,,,2026-09-09T00:00:00.000Z,import
+EC169,LX232N,IC,,D6,2,4,,,2026-09-09T00:00:00.000Z,import
+EC170,ATmega 16,IC,,D6,2,4,,,2026-09-09T00:00:00.000Z,import
+EC171,PIC16F877A,IC,,D6,7,4,,,2026-09-09T00:00:00.000Z,import
+EC172,HT-12E,IC,,D6,13,4,,,2026-09-09T00:00:00.000Z,import
+EC173,HT-12D,IC,,D6,22,4,,,2026-09-09T00:00:00.000Z,import
+EC174,UA741CN,IC,,D7,4,4,,,2026-09-09T00:00:00.000Z,import
+EC175,CM8870PI,IC,,D7,4,4,,,2026-09-09T00:00:00.000Z,import
+EC176,AT89C2051,IC,,D7,3,4,,,2026-09-09T00:00:00.000Z,import
+EC177,HCF40417BE,IC,,D7,8,4,,,2026-09-09T00:00:00.000Z,import
+EC178,CS9370,IC,,D7,4,4,,,2026-09-09T00:00:00.000Z,import
+EC179,3.5 MM jack,Connector,,E1,,4,,Yes,2026-09-09T00:00:00.000Z,import
+EC180,PSoC 4 CY8C,MCU / Dev Board,,E2,5,1,,,2026-09-09T00:00:00.000Z,import
+EC181,Arduino Mega,MCU / Dev Board,,E2,1,1,,,2026-09-09T00:00:00.000Z,import
+EC182,Arduino UNO,MCU / Dev Board,,E2,5,1,,,2026-09-09T00:00:00.000Z,import
+EC183,ESP 8266,MCU / Dev Board,,E3,4,1,,,2026-09-09T00:00:00.000Z,import
+EC184,ESP32,MCU / Dev Board,,E3,7,1,,,2026-09-09T00:00:00.000Z,import
+EC185,Female to Female,Jumper Wire,,E4,,5,,Yes,2026-09-09T00:00:00.000Z,import
+EC186,Male to Male,Jumper Wire,,E5,,5,,Yes,2026-09-09T00:00:00.000Z,import
+EC187,Male to Female,Jumper Wire,,E6,,5,,Yes,2026-09-09T00:00:00.000Z,import
+EC188,16x2 LCD Display,Display,,G1,14,1,,,2026-09-09T00:00:00.000Z,import
+EC189,USB Extention Cable,Cable,,G2,10,2,,,2026-09-09T00:00:00.000Z,import
+EC190,Ri- Pi Cable,Cable,,G3,5,2,,,2026-09-09T00:00:00.000Z,import
+EC191,HDMI Adapter,Power,,G3,3,2,,,2026-09-09T00:00:00.000Z,import
+EC192,AC cords and cables,Cable,,G4,,2,,Yes,2026-09-09T00:00:00.000Z,import
+EC193,Robotronix IR sensor,Module,,G5,47,2,,,2026-09-09T00:00:00.000Z,import
+EC194,1 Channel Relay Module,Relay,,G6,21,2,,,2026-09-09T00:00:00.000Z,import
+EC195,2 Channel Relay Module,Relay,,G6,4,2,,,2026-09-09T00:00:00.000Z,import
+EC196,4 Channel Relay Module,Relay,,G6,4,2,,,2026-09-09T00:00:00.000Z,import
+EC197,A Type USB Cable,Cable,,H1,18,2,,,2026-09-09T00:00:00.000Z,import
+EC198,STM 32 Cable,Cable,,H1,1,2,,,2026-09-09T00:00:00.000Z,import
+EC199,Micro USB Cable,Cable,,H1,3,2,,,2026-09-09T00:00:00.000Z,import
+EC200,JST connector,Connector,,H2,,4,,Yes,2026-09-09T00:00:00.000Z,import
+EC201,USB Extention Cable,Cable,,H3,5,2,,,2026-09-09T00:00:00.000Z,import
+EC202,GSM Rx Module,Module,,H4,5,2,,,2026-09-09T00:00:00.000Z,import
+EC203,19v Adapter,Power,,ADAPTER BOX,2,2,,,2026-09-09T00:00:00.000Z,import
+EC204,5V adapter,Power,,ADAPTER BOX,8,2,,,2026-09-09T00:00:00.000Z,import
+EC205,12v Adapter,Power,,ADAPTER BOX,9,2,,,2026-09-09T00:00:00.000Z,import
+EC206,9V Adapter,Power,,ADAPTER BOX,1,2,,,2026-09-09T00:00:00.000Z,import
+EC207,14V Adapter,Power,,ADAPTER BOX,1,2,,,2026-09-09T00:00:00.000Z,import
+EC208,BreadBoard,Power,,UNASSIGNED,13,2,,,2026-09-09T00:00:00.000Z,import
+EC209,EM-18 Reader Module,Module,,UNASSIGNED,8,2,,,2026-09-09T00:00:00.000Z,import
+EC210,128x64 dislpay,Display,,DISPLAY BOX,16,1,,,2026-09-09T00:00:00.000Z,import
+EC211,JHD 204 A Display,Display,,DISPLAY BOX,1,1,,,2026-09-09T00:00:00.000Z,import
+EC212,9V Battery,Battery,,BATTERY BOX,15,2,,,2026-09-09T00:00:00.000Z,import
+EC213,9V Battery Cap,Battery,,BATTERY BOX,34,2,,,2026-09-09T00:00:00.000Z,import
+EC214,GPS Reciever Module,Module,,UNASSIGNED,6,2,,,2026-09-09T00:00:00.000Z,import
+EC215,10 pin IC Base,IC Base,,UNASSIGNED,126,5,,,2026-09-09T00:00:00.000Z,import
+EC216,3.7V 1250 mAh Battery,Battery,Yes,SMD BOX,1,2,,,2026-09-09T00:00:00.000Z,import
+EC217,3.7V 400 mAh Battery,Battery,Yes,SMD BOX,1,2,,,2026-09-09T00:00:00.000Z,import
+EC218,60 GHz mmWave Sensor - Breathing and Heartbeat Module,Module,Yes,SMD BOX,2,2,,,2026-09-09T00:00:00.000Z,import
+EC219,60GHz mmwave Radar Sensor Module,Module,Yes,SMD BOX,1,2,,,2026-09-09T00:00:00.000Z,import
+EC220,SMD RGB,LED,Yes,SMD BOX,17,5,,,2026-09-09T00:00:00.000Z,import
+EC221,bushless Fan,Fan,Yes,SMD BOX,2,1,,,2026-09-09T00:00:00.000Z,import
+EC222,JST Connector,Connector,Yes,SMD BOX,40,4,,,2026-09-09T00:00:00.000Z,import
+EC223,0 Ωs 62.5mW 0402 1 Resistor,Resistor,Yes,SMD BOX,15,10,,,2026-09-09T00:00:00.000Z,import
+EC224,4 pin -1.6 mm Height low profile side push type tact swirch 1.7mm pitch,Switch,Yes,SMD BOX,10,4,,,2026-09-09T00:00:00.000Z,import
+EC225,XL Nozzle Kit for air pump,Hardware,Yes,SMD BOX,3,5,,,2026-09-09T00:00:00.000Z,import
+EC226,USB TTL Converter,Module,Yes,SMD BOX,1,2,,,2026-09-09T00:00:00.000Z,import
+EC227,Heat Sink,Heat Sink,Yes,SMD BOX,2,4,,,2026-09-09T00:00:00.000Z,import
+EC228,2 mm Pitch 2 Pin JST Connector,Connector,Yes,SMD BOX,5,4,,,2026-09-09T00:00:00.000Z,import
+EC229,Flex PCB AWM 20624 80C 60V VW-1,PCB,Yes,SMD BOX,13,1,,,2026-09-09T00:00:00.000Z,import
+EC230,AHT25 Integrated Temparature And Humidity Sensor,Sensor,Yes,SMD BOX,2,2,,,2026-09-09T00:00:00.000Z,import
+EC231,Jumper Male Head,Jumper Wire,Yes,SMD BOX,8,5,,,2026-09-09T00:00:00.000Z,import
+EC232,Jumper Female Head,Jumper Wire,Yes,SMD BOX,2,5,,,2026-09-09T00:00:00.000Z,import
+EC233,R5F100BCA MCU,IC,Yes,SMD BOX,6,4,,,2026-09-09T00:00:00.000Z,import
+EC234,724834-C_13 (World's Lowest Power),IC,Yes,SMD BOX,0,4,,,2026-09-09T00:00:00.000Z,import
+EC235,WS2812B - 2020 - Addressable RGB Pixel Led,LED,Yes,SMD BOX,3,5,,,2026-09-09T00:00:00.000Z,import
+EC236,652 - CDSOD323 - T05LC (TVS Diode),Diode,Yes,SMD BOX,0,5,,,2026-09-09T00:00:00.000Z,import
+EC237,PM20631,Misc,Yes,SMD BOX,0,2,,,2026-09-09T00:00:00.000Z,import
+EC238,NCP176AMX330TCG (IC REG LINER 3.3V 500MA 6-XDFN),Resistor,Yes,SMD BOX,0,10,,,2026-09-09T00:00:00.000Z,import
+EC239,"DF2S6.8FS,L3M (TVS Diode 5VWM 9VC SOD923)",Diode,Yes,SMD BOX,5,5,,,2026-09-09T00:00:00.000Z,import
+EC240,W250512JVBIQ-ND (IC Flash 512MBIT SPI 24TFBGA),IC,Yes,SMD BOX,0,4,,,2026-09-09T00:00:00.000Z,import
+EC241,TX0104EYZTR (IC XLTR VL BIDIR 12-DSBGA),Transistor,Yes,SMD BOX,0,4,,,2026-09-09T00:00:00.000Z,import
+EC242,LQG15HS3N9B02D ( Fixed IND 3.9NH 750MA 0.14Ω SM),Resistor,Yes,SMD BOX,5,10,,,2026-09-09T00:00:00.000Z,import
+EC243,CC042KRNPO9BN101 (CAP CER 100PF 50V COG/NPO 0402),Capacitor,Yes,SMD BOX,15,10,,,2026-09-09T00:00:00.000Z,import
+EC244,CC042JRNP09BN120 ( CAP CER 12PF 50V COG/NPO 0402),Capacitor,Yes,SMD BOX,0,10,,,2026-09-09T00:00:00.000Z,import
+EC245,4.7uf/4700nF 50V 10% Tolerance Capacitor 04025C475KAT2A,Capacitor,Yes,SMD BOX,5,10,,,2026-09-09T00:00:00.000Z,import
+EC246,4.7uf/4700nF 50V 10% Tolerance Capacitor 04025C475KAT2A,Capacitor,Yes,SMD BOX,30,10,,,2026-09-09T00:00:00.000Z,import
+EC247,10uf 50V 10% Tolerance Capacitor 04025C475KAT2A,Capacitor,Yes,SMD BOX,45,10,,,2026-09-09T00:00:00.000Z,import
+EC248,1uf 1000V 10% Tolerance Capacitor 04025C475KAT2A,Capacitor,Yes,SMD BOX,7,10,,,2026-09-09T00:00:00.000Z,import
+EC249,10uf 50V 10% Tolerance Capacitor 04025C106KAT2A,Capacitor,Yes,SMD BOX,10,10,,,2026-09-09T00:00:00.000Z,import
+EC250,ABS06 - 32.7680KHz 12.fPF SMD,Misc,Yes,SMD BOX,0,2,,,2026-09-09T00:00:00.000Z,import
+EC251,50v 0.1uf X7R 0402,Capacitor,Yes,SMD BOX,0,10,,,2026-09-09T00:00:00.000Z,import
+EC252,50v 100pf C0G 0402,Capacitor,Yes,SMD BOX,5,10,,,2026-09-09T00:00:00.000Z,import
+EC253,LBMF1608T100K (Fixed IND 10UH 80 MA 360MΩ SMD),Inductor,Yes,SMD BOX,5,5,,,2026-09-09T00:00:00.000Z,import
+EC254,20566-001E-01(MHF 5 RECEPTACLE),Misc,Yes,SMD BOX,0,2,,,2026-09-09T00:00:00.000Z,import
+EC255,MCLA1005V2-150-RT -ND (Fixed IND 15NH 300MA 500MΩ SMD),Inductor,Yes,SMD BOX,5,5,,,2026-09-09T00:00:00.000Z,import
+EC256,CL05B104KB5NNNC( CAP CER 0.1uf 50v X7R 0402),Capacitor,Yes,SMD BOX,20,10,,,2026-09-09T00:00:00.000Z,import
+EC257,GJM 1555C 1HR80WB01D(CAP CER 0.8PF 50V COG/NPO 0402),Capacitor,Yes,SMD BOX,20,10,,,2026-09-09T00:00:00.000Z,import
+EC258,3.9NH +-.1NH murata RF Inductor,Inductor,Yes,SMD BOX,5,5,,,2026-09-09T00:00:00.000Z,import
+EC259,15 NH 5% AEC-Q200 Eaton RF Inductor,Inductor,Yes,SMD BOX,5,5,,,2026-09-09T00:00:00.000Z,import
+EC260,50v 12 pF C0G 0402,Capacitor,Yes,SMD BOX,20,10,,,2026-09-09T00:00:00.000Z,import
+EC261,0.8 pF 50 VDC 0.05 p,Capacitor,Yes,SMD BOX,5,10,,,2026-09-09T00:00:00.000Z,import
+EC262,5.6 k0hms 62.5mW 040,Resistor,Yes,SMD BOX,5,10,,,2026-09-09T00:00:00.000Z,import
+EC263,LSQBB160808T100K Power inductor,Inductor,Yes,SMD BOX,5,5,,,2026-09-09T00:00:00.000Z,import
+EC264,RES 5.6K Ω 1% 1/16 W 0402,Resistor,Yes,SMD BOX,14,10,,,2026-09-09T00:00:00.000Z,import
+EC265,ESD Protection diode,Diode,Yes,SMD BOX,0,5,,,2026-09-09T00:00:00.000Z,import
+EC266,RES 110K Ω 1% 1/16W 0402,Resistor,Yes,SMD BOX,20,10,,,2026-09-09T00:00:00.000Z,import
+EC267,CRYSTAL 32.0000MHZ 12PF SMD,Oscillator,Yes,SMD BOX,0,5,,,2026-09-09T00:00:00.000Z,import
+EC268,100k Ωs 62.5 mW 040,Resistor,Yes,SMD BOX,0,10,,,2026-09-09T00:00:00.000Z,import
+EC269,RES 0 ΩS Jumper 1/16 W 0402,Resistor,Yes,SMD BOX,4,10,,,2026-09-09T00:00:00.000Z,import
+EC270,CONN HEADER SMD 3 POS 1.2MM,Connector,Yes,SMD BOX,0,4,,,2026-09-09T00:00:00.000Z,import
+EC271,CONN FFC FPC 6POS 0.5MM R/A,Misc,Yes,SMD BOX,0,2,,,2026-09-09T00:00:00.000Z,import
+EC272,IC BATT CHG LI-ION 1CELL 20QFN,Misc,Yes,SMD BOX,0,2,,,2026-09-09T00:00:00.000Z,import
+EC273,TVS Diode 5VWM 18.3VC SOD323,Diode,Yes,SMD BOX,3,5,,,2026-09-09T00:00:00.000Z,import
+EC274,500 Ω Resistor,Resistor,,MIXED RESISTOR BOX,5,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC275,22K Ω Resistor,Resistor,,MIXED RESISTOR BOX,10,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC276,5K Ω Resistor,Resistor,,MIXED RESISTOR BOX,3,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC277,1.7K Ω Resistor,Resistor,,MIXED RESISTOR BOX,3,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC278,390 Ω Resistor,Resistor,,MIXED RESISTOR BOX,10,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC279,47 Ω Resistor,Resistor,,MIXED RESISTOR BOX,10,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC280,150K Ω Resistor,Resistor,,MIXED RESISTOR BOX,10,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC281,120K Ω Resistor,Resistor,,MIXED RESISTOR BOX,10,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC282,470K Ω Resistor,Resistor,,MIXED RESISTOR BOX,10,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC283,39 Ω Resistor,Resistor,,MIXED RESISTOR BOX,5,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC284,15K Ω Resistor,Resistor,,MIXED RESISTOR BOX,10,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC285,55K Ω Resistor,Resistor,,MIXED RESISTOR BOX,5,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC286,220 Ω Resistor,Resistor,,MIXED RESISTOR BOX,5,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC287,270K Ω Resistor,Resistor,,MIXED RESISTOR BOX,200,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC288,56K Ω Resistor,Resistor,,MIXED RESISTOR BOX,400,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC289,2K Ω Resistor,Resistor,,MIXED RESISTOR BOX,300,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC290,100K Ω Resistor,Resistor,,MIXED RESISTOR BOX,100,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC291,RFID Reader,RFID,,E2,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC292,RFID Card,RFID,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC293,RFID Tag,RFID,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC294,HC-05 Bluetooth Module,Module,,A8,3,2,,,2026-09-09T00:00:00.000Z,import
+EC295,Buzzer,Buzzer,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC296,Soilder Wire,Soldering,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC297,Soilderf Iron,Soldering,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC298,Soilder Stand,Soldering,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC299,Sucker Pump,Soldering,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC300,Soilder Paste/ oil,Soldering,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC301,Soilder SMD Paste,Soldering,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC302,De-soilder Wire,Soldering,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC303,Single Strenght Wire,Wire,,UNASSIGNED,,2,,Yes,2026-09-09T00:00:00.000Z,import
+EC304,Forsive,Tool,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC305,Crocodile Cable/ Multimeter,Wire,,UNASSIGNED,,2,,Yes,2026-09-09T00:00:00.000Z,import
+EC306,PCB Eathching Powder,PCB,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC307,Servo Motor (SG 90),Motor,,A9,1,2,,,2026-09-09T00:00:00.000Z,import
+EC308,Bulb Holder,Lamp,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC309,Bulb Holder,Lamp,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC310,Transformer,Power,,UNASSIGNED,,2,,Yes,2026-09-09T00:00:00.000Z,import
+EC311,Two Pin,Connector,,UNASSIGNED,,4,,Yes,2026-09-09T00:00:00.000Z,import
+EC312,Three Pin,Connector,,UNASSIGNED,,4,,Yes,2026-09-09T00:00:00.000Z,import
+EC313,Wire Slive,Wire,,UNASSIGNED,,2,,Yes,2026-09-09T00:00:00.000Z,import
+EC314,Rainbow Wire,Wire,,UNASSIGNED,,2,,Yes,2026-09-09T00:00:00.000Z,import
+EC315,multimeter,Tool,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC316,Screw Driver,Tool,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC317,Robo Chesis,Chassis,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC318,BO Motor,Motor,,UNASSIGNED,,2,,Yes,2026-09-09T00:00:00.000Z,import
+EC319,Rasberry Pi,MCU / Dev Board,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC320,Jetson Nano,MCU / Dev Board,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC321,LCD(R-pi/ jetson),Display,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC322,Type-c to Micro,Converter,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC323,HDMI to vga Converter,Converter,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC324,Cable-Tie,Misc,,UNASSIGNED,,2,,Yes,2026-09-09T00:00:00.000Z,import
+EC325,SD Card Reader,Module,,UNASSIGNED,,2,,Yes,2026-09-09T00:00:00.000Z,import
+EC326,SD Card,Memory,,UNASSIGNED,,1,,Yes,2026-09-09T00:00:00.000Z,import
+EC327,STM 32 Board,MCU / Dev Board,,UNASSIGNED,1,1,,,2026-09-09T00:00:00.000Z,import
+EC328,NRF52 dev Board,MCU / Dev Board,,UNASSIGNED,3,1,,,2026-09-09T00:00:00.000Z,import
+EC329,USB Camera,Camera,,UNASSIGNED,2,1,,,2026-09-09T00:00:00.000Z,import
+EC330,KP Litieum Battery 402025 400mAh,Battery,,H DRAWER,3,2,,,2026-09-09T00:00:00.000Z,import
+EC331,HDMI to vga Converter,Converter,,ARDUINO CABLE BOX,1,1,,,2026-09-09T00:00:00.000Z,import
+EC332,Antenna Connector MH1 with Coax Cable Only (ANTX200P001B24003 ),Connector,,UNASSIGNED,15,4,,,2026-09-09T00:00:00.000Z,import
+EC333,2.4 Ghz Antenna with Coax Cable with MH1 Connector (ANTX200P001B24003 ),Antenna,,SMD BOX,5,1,,,2026-09-09T00:00:00.000Z,import
+EC334,Antenna Connector MH5 to MH5 (8-21-0045),Connector,,SMD BOX,2,4,,,2026-09-09T00:00:00.000Z,import
+EC335,Coton,Misc,,CUPBOARD,1,2,,,2026-09-09T00:00:00.000Z,import
+EC336,Ultrasonic Sensor,Sensor,,UNASSIGNED,0,2,,,2026-09-09T00:00:00.000Z,import
+EC337,RGB LED Common Cathode,LED,,UNASSIGNED,0,5,,,2026-09-09T00:00:00.000Z,import
+EC338,3.7v 2500mah Lithium Battery,Battery,,UNASSIGNED,0,2,,,2026-09-09T00:00:00.000Z,import
+EC339,MM32-LINK Emulattor/Programmer,Misc,,UNASSIGNED,1,2,,,2026-09-09T00:00:00.000Z,import
+EC340,ICM 20948 - 9 axis motion tracking module (Gyroscope),Sensor,,A8,1,2,,,2026-09-09T00:00:00.000Z,import
+EC341,LSM6DS0 - 6 axis degree of freedom breakdown board (gyroscope),Sensor,,A8,2,2,,,2026-09-09T00:00:00.000Z,import
+EC342,"GY-521 MPU- 6050, 3 axis Gyroscope",Sensor,,A8,2,2,,,2026-09-09T00:00:00.000Z,import
+EC343,ESP 8266 wifi Module,Module,,A8,3,2,,,2026-09-09T00:00:00.000Z,import
+EC344,GY BMP280 Atmospheric pressure sensor module,Sensor,,A8,2,2,,,2026-09-09T00:00:00.000Z,import
+EC345,A4988 driver,Driver,,A8,5,1,,,2026-09-09T00:00:00.000Z,import
+EC346,TSL 2591 X Light Sensor,Sensor,,A8,1,2,,,2026-09-09T00:00:00.000Z,import
+EC347,HW 611 P 280,Sensor,,A8,1,2,,,2026-09-09T00:00:00.000Z,import
+EC348,MQ 135,Sensor,,B3,1,2,,,2026-09-09T00:00:00.000Z,import
+EC349,1s BMS,Module,,A8,4,2,,,2026-09-09T00:00:00.000Z,import
+EC350,Raindrop Sensor,Sensor,,MIXED RESISTOR BOX,1,2,,,2026-09-09T00:00:00.000Z,import
+EC351,KY -024 Liner Magnetic hall effect Sensor,Module,,A8,2,2,,,2026-09-09T00:00:00.000Z,import
+EC352,LoRa Module E-5,Module,,A8,1,2,,,2026-09-09T00:00:00.000Z,import
+EC353,Photosensitive Sensor Module,Module,,A8,1,2,,,2026-09-09T00:00:00.000Z,import
+EC354,ACS721 Current Sensor Module,Module,,A8,1,2,,,2026-09-09T00:00:00.000Z,import
+EC355,DTH 11,Sensor,,A8,1,2,,,2026-09-09T00:00:00.000Z,import
+EC356,DTH 22,Sensor,,A8,1,2,,,2026-09-09T00:00:00.000Z,import
+EC357,XH- M601 12v battery chaeging Control board,Module,,A8,1,2,,,2026-09-09T00:00:00.000Z,import
+EC358,ADXL 335 Accelerometer,Sensor,,A8,2,2,,,2026-09-09T00:00:00.000Z,import
+EC359,KY -039 Finger Heartbeat sensor,Sensor,,A8,1,2,,,2026-09-09T00:00:00.000Z,import
+EC360,JSN-SR4T,Sensor,,A9,1,2,,,2026-09-09T00:00:00.000Z,import
+EC361,DS1307 Real Time clock Module,Module,,A9,1,2,,,2026-09-09T00:00:00.000Z,import
+EC362,DS3231 AT24c32 IIC Real time clock Module,Module,,A9,1,2,,,2026-09-09T00:00:00.000Z,import
+EC363,ADS 1115 ADC module,Module,,A9,1,2,,,2026-09-09T00:00:00.000Z,import
+EC364,RF Module,Module,,A9,1,2,,,2026-09-09T00:00:00.000Z,import
+EC365,Core 51822 BLE 4.0 Bluetooth Wireless Module,Module,,A9,1,2,,,2026-09-09T00:00:00.000Z,import
+EC366,Active Soil Moustire Sensor,Sensor,,A9,1,2,,,2026-09-09T00:00:00.000Z,import
+EC367,Passive Soil Moisture Sensor,Sensor,,A9,1,2,,,2026-09-09T00:00:00.000Z,import
+EC368,RElay iot board board Esp 8266,Module,,A9,1,2,,,2026-09-09T00:00:00.000Z,import
+EC369,ULN2003 Stepper Motor Driver,Module,,A9,1,2,,,2026-09-09T00:00:00.000Z,import
+EC370,DC-DC Buck Boost Converter,Module,,A9,2,2,,,2026-09-09T00:00:00.000Z,import
+EC371,AS 608 Fingerprint Sensor,Sensor,,A9,1,2,,,2026-09-09T00:00:00.000Z,import
+EC372,CCTV Audio Mic,Microphone,,A9,1,2,,,2026-09-09T00:00:00.000Z,import
+EC373,SD Card 64GB,Memory,,UNASSIGNED,0,1,,,2026-09-09T00:00:00.000Z,import
+EC374,WLY 853837 3.7V 1250mAh Lethiuem Battery,Battery,,SMD BOX,1,2,,,2026-09-09T00:00:00.000Z,import
+EC375,"REYEX RYLR998 35/24 Lora Module (Only ""Tx"")",Module,,SMD BOX,1,2,,,2026-09-09T00:00:00.000Z,import
+EC376,"Male to Female ""MF""",Misc,,E6,5,2,,,2026-09-09T00:00:00.000Z,import
+EC377,Analyzer 24MHz 8CH,Misc,,SMD BOX,1,2,,,2026-09-09T00:00:00.000Z,import
+EC378,HT Coil for Amp Detection 100A,Misc,,C5,1,2,,,2026-09-09T00:00:00.000Z,import
+EC379,35v 1000uf Capacitor,Capacitor,,UNASSIGNED,10,10,Yes,,2026-09-09T00:00:00.000Z,import
+EC380,N5408 Diode 3A,Capacitor,,UNASSIGNED,10,10,Yes,,2026-09-09T00:00:00.000Z,import

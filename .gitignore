@@ -1,0 +1,11 @@
+# local server / editor noise
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# clasp (Apps Script CLI), if you ever use it
+.clasp.json
+.clasprc.json
+node_modules/
